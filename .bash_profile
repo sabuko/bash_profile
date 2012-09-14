@@ -1,19 +1,31 @@
-alias rusnerver='python server/manage.py runserver'
+# GAE
+alias runserver='python ~/mopub/server/manage.py runserver'
 alias clear_local='rm ~/mopub_local_datastore.django'
 
-alias staging='python server/scripts/mpdeploy.py frontend-staging'
-alias slam='python server/scripts/mpdeploy.py slam'
-alias boom='python server/scripts/mpdeploy.py boom'
-alias deploy='python server/scripts/mpdeploy.py production'
+alias staging='python ~/mopub/server/scripts/mpdeploy.py frontend-staging'
+alias slam='python ~/mopub/server/scripts/mpdeploy.py slam'
+alias boom='python ~/mopub/server/scripts/mpdeploy.py boom'
+alias deploy='python ~/mopub/server/scripts/mpdeploy.py production'
 
+# GIT
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
 alias gc='git commit'
+alias gm='git commit -m'
 alias gd='git diff'
 alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
+
+# Edit configs
+alias profile='vim ~/bash_profile/.bash_profile'
+alias vimrc='vim ~/vimrc/.vimrc'
+
+# navigation
+alias srv='cd ~/mopub/server'
+alias js='cd ~/mopub/server/public/js'
+alias css='cd ~/mopub/server/public/css'
 
 # Color Constants
 
