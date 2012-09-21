@@ -1,6 +1,6 @@
 # PATH
 GAE_PATH='/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/'
-export PYTHONPATH=$PYTHONPATH:$GAE_PATH:$GAE_PATH/lib/antlr3:$GAE_PATH/lib/django_1_2:$GAE_PATH/lib/fancy_urllib:$GAE_PATH/lib/ipaddr:$GAE_PATH/lib/webob:$GAE_PATH/lib/yaml/lib
+export PYTHONPATH=$PYTHONPATH:$GAE_PATH:$GAE_PATH/lib/antlr3:$GAE_PATH/lib/django_1_2:$GAE_PATH/lib/fancy_urllib:$GAE_PATH/lib/ipaddr:$GAE_PATH/lib/webob:$GAE_PATH/lib/yaml/lib:$GAE_PATH/lib/webob_1_1_1/
 export DJANGO_SETTINGS_MODULE=settings
 
 # GAE
@@ -13,6 +13,9 @@ alias staging='python ~/mopub/server/scripts/mpdeploy.py frontend-staging'
 alias slam='python ~/mopub/server/scripts/mpdeploy.py slam'
 alias boom='python ~/mopub/server/scripts/mpdeploy.py boom'
 alias deploy='python ~/mopub/server/scripts/mpdeploy.py production'
+
+# EC2
+alias ec2='ssh -i ~/bash_profile/jpmopub-keypair ubuntu@ec2-184-72-183-185.compute-1.amazonaws.com'
 
 # GIT
 alias gs='git status '
