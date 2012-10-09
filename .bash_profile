@@ -1,17 +1,18 @@
 # PATH
 GAE_PATH='/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/'
-export PYTHONPATH=$PYTHONPATH:$GAE_PATH:$GAE_PATH/lib/antlr3:$GAE_PATH/lib/django_1_2:$GAE_PATH/lib/fancy_urllib:$GAE_PATH/lib/ipaddr:$GAE_PATH/lib/webob:$GAE_PATH/lib/yaml/lib:$GAE_PATH/lib/webob_1_1_1/
+#export PYTHONPATH=$PYTHONPATH:$GAE_PATH:$GAE_PATH/lib/antlr3:$GAE_PATH/lib/django_1_2:$GAE_PATH/lib/fancy_urllib:$GAE_PATH/lib/ipaddr:$GAE_PATH/lib/webob:$GAE_PATH/lib/yaml/lib:$GAE_PATH/lib/webob_1_1_1/
 export DJANGO_SETTINGS_MODULE=settings
 
 # GAE
-alias gae='python -i ~/bash_profile/gae.py'
+alias gae='python manage.py console mopub-inc'
 
-alias runserver='python ~/mopub/server/manage.py runserver'
+alias runserver_gae='python ~/mopub/server/manage.py runserver'
 alias clear_local='rm ~/mopub_local_datastore.django'
 
 alias staging='python ~/mopub/server/scripts/mpdeploy.py frontend-staging'
-alias slam='python ~/mopub/server/scripts/mpdeploy.py slam'
-alias boom='python ~/mopub/server/scripts/mpdeploy.py boom'
+alias slam='python ~/mopub/server/scripts/mpdeploy.py frontend-slam'
+alias boom='python ~/mopub/server/scripts/mpdeploy.py frontend-boom'
+alias beta='python ~/mopub/server/scripts/mpdeploy.py frontend-beta'
 alias deploy='python ~/mopub/server/scripts/mpdeploy.py production'
 
 # EC2
@@ -36,6 +37,22 @@ alias vimrc='vim ~/vimrc/.vimrc'
 alias srv='cd ~/mopub/server'
 alias js='cd ~/mopub/server/public/js'
 alias css='cd ~/mopub/server/public/css'
+
+# network-reporting
+alias ntwk='cd ~/network-reporting;source venv/bin/activate'
+alias shell='ntwk;python ~/network-reporting/manage.py shell_plus --settings=network_reporting.settings'
+alias tests='ntwk;python manage.py test --settings=network_reporting.settings'
+alias runserver='ntwk;sudo python manage.py runserver --settings=network_reporting.settings'
+
+alias sql='psql -d network_reporting'
+
+function reset_django_db {
+    ntwk
+    psql -d postgres -c 'DROP DATABASE network_reporting'
+    psql -d postgres -c 'CREATE DATABASE network_reporting'
+    python ~/network-reporting/manage.py syncdb --noinput --settings=network_reporting.settings
+    python ~/network-reporting/manage.py migrate --settings=network_reporting.settings
+}
 
 # Color Constants
 
